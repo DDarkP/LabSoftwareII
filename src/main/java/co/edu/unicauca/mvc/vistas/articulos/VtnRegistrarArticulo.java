@@ -10,7 +10,6 @@ import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Conferencia;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 /**
  *

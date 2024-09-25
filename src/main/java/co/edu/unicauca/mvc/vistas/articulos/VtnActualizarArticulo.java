@@ -209,16 +209,13 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
         objArticulo.setTitulo(titulo);
         objArticulo.setAutores(autores);
         objArticulo.setObjConferencia(objConferencia);
-        
-        bandera=this.objServicio1.actualizarArticulo(objArticulo);
-       if(bandera==true)
-       {
-           Utilidades.mensajeExito("Artículo actualizado exitosamente", "Artículo actualizado");
-       }
-       else
-       {
-           Utilidades.mensajeError("Error al actualizar el artículo", "Error al actualizar");
-       }
+
+        bandera = this.objServicio1.actualizarArticulo(objArticulo);
+        if (bandera == true) {
+            Utilidades.mensajeExito("Artículo actualizado exitosamente", "Artículo actualizado");
+        } else {
+            Utilidades.mensajeError("Error al actualizar el artículo", "Error al actualizar");
+        }
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     

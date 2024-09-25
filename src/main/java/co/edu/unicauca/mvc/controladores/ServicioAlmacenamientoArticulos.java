@@ -1,11 +1,12 @@
 package co.edu.unicauca.mvc.controladores;
 
 import co.edu.unicauca.mvc.accesoADatos.InterfaceRepositorioArticulo;
+import co.edu.unicauca.mvc.infraestructura.Subject;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import java.util.List;
 
 
-public class ServicioAlmacenamientoArticulos {
+public class ServicioAlmacenamientoArticulos extends Subject{
     private InterfaceRepositorioArticulo referenciaRepositorioArticulo;
     
     public ServicioAlmacenamientoArticulos(InterfaceRepositorioArticulo referenciaRepositorioArticulo)

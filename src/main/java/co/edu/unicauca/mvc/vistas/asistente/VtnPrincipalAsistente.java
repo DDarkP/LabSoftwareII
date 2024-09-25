@@ -1,8 +1,10 @@
 package co.edu.unicauca.mvc.vistas.asistente;
 
+import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.vistas.autorPublicacion.*;
 import co.edu.unicauca.mvc.infraestructura.Observer;
+import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Conferencia;
 import java.text.SimpleDateFormat;
 
@@ -10,7 +12,7 @@ import java.text.SimpleDateFormat;
  *
  * @author HSVSTT2
  */
-public class VtnPrincipalAsistente extends javax.swing.JFrame implements Observer{
+public class VtnPrincipalAsistente extends javax.swing.JFrame implements Observer {
 
     /**
      * Creates new form VtnPrincipalAdmin
@@ -110,21 +112,38 @@ public class VtnPrincipalAsistente extends javax.swing.JFrame implements Observe
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   @Override
+    @Override
     public void update(Object o) {
-        String notificacion;
-        ServicioAlmacenamientoConferencias objServicio
-                =(ServicioAlmacenamientoConferencias) o;
-        Conferencia objNueva=objServicio.listarConferencias().get(objServicio.listarConferencias().size()-1);
-         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-       
-        notificacion="Nueva conferencia a la cual podras asistir "+
-                "Nombre: " + objNueva.getNombre()+" "+
-                "Costo: " +  objNueva.getCostoInscripcion()+" "+
-                "Fecha inicio: " + formatter.format(objNueva.getFechaInicio())+" "+
-                "Fecha fin: " + formatter.format(objNueva.getFechaFin());
+        String notificacion = "";
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        // Verificar si el objeto es de tipo ServicioAlmacenamientoConferencias
+        if (o instanceof ServicioAlmacenamientoConferencias) {
+            ServicioAlmacenamientoConferencias objServicio = (ServicioAlmacenamientoConferencias) o;
+            Conferencia objNueva = objServicio.listarConferencias().get(objServicio.listarConferencias().size() - 1);
+
+            notificacion += "Nueva conferencia registrada "
+                    + "Nombre: " + objNueva.getNombre() + " "
+                    + "Costo: " + objNueva.getCostoInscripcion() + " "
+                    + "Fecha inicio: " + formatter.format(objNueva.getFechaInicio()) + " "
+                    + "Fecha fin: " + formatter.format(objNueva.getFechaFin()) + "\n";
+        }
+
+        // Verificar si el objeto es de tipo ServicioAlmacenamientoArticulos
+        if (o instanceof ServicioAlmacenamientoArticulos) {
+            ServicioAlmacenamientoArticulos objServicio1 = (ServicioAlmacenamientoArticulos) o;
+            Articulo objNueva1 = objServicio1.listarArticulos().get(objServicio1.listarArticulos().size() - 1);
+
+            notificacion += "Nuevo artículo registrado "
+                    + "Nombre: " + objNueva1.getTitulo()+ " "
+                    + "Autores: " + objNueva1.getAutores() + "\n";
+        }
+
+        // Mostrar la notificación en el JTextArea
         this.jTextAreaNotificaciones.setText(notificacion);
     }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelNotificaciones;
     private javax.swing.JLabel jLabelTitulo;
