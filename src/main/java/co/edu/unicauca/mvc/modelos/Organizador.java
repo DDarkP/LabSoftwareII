@@ -1,18 +1,11 @@
 package co.edu.unicauca.mvc.modelos;
 
-public class Organizador{
+public class Organizador {
     private String nombres;
     private String apellidos;
     private String universidad;
 
-//    public Organizador(String nombres, String apellidos, String universidad, String nombreUser, String password, String rol) {
-//        super(nombreUser, password, rol);
-//        this.nombres = nombres;
-//        this.apellidos = apellidos;
-//        this.universidad = universidad;
-//    }
-
-//    Constructor
+    // Constructor
     public Organizador(String nombres, String apellidos, String universidad) {
         this.nombres = nombres;
         this.apellidos = apellidos;
