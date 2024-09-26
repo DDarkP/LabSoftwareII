@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import co.edu.unicauca.mvc.modelos.Conferencia;
-import java.util.LinkedList;
 
 public class VtnListarConferencias extends javax.swing.JInternalFrame {
 
