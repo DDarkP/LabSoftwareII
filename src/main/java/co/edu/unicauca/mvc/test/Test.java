@@ -54,9 +54,9 @@ public class Test {
         
         VtnPrincipalLogin objVtnPrincipalLogin = new VtnPrincipalLogin();
         VtnPrincipalAdmin objVtnPrincipal = new VtnPrincipalAdmin();        
-        objVtnPrincipal.asociarServicoAlmacenamientoConferencias(objServicio1);
-        objVtnPrincipal.asociarServicoAlmacenamientoArticulos(objServicio2);//new
-        objVtnPrincipal.asociarServicoAlmacenamientoOrganizadores(objServicio3);
+        objVtnPrincipal.asociarServicioAlmacenamientoConferencias(objServicio1);
+        objVtnPrincipal.asociarServicioAlmacenamientoArticulos(objServicio2);//new
+        objVtnPrincipal.asociarServicioAlmacenamientoOrganizadores(objServicio3);
         objVtnPrincipalLogin.asociarServiciosAlmacenamiento(objServicio4);
         
         objVtnPrincipalLogin.setVisible(true);

@@ -6,6 +6,7 @@ package co.edu.unicauca.mvc.vistas.registroInicioSesion;
 
 import co.edu.unicauca.mvc.vistas.adminConferencia.VtnPrincipalAdmin;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoUsuarios;
+import co.edu.unicauca.mvc.modelos.Usuario;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
@@ -20,14 +21,18 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
     private ServicioAlmacenamientoUsuarios objServAlmacUsuarios;
     private VtnPrincipalSignUp objVtnPrincipalSignUp;
 
+    public VtnPrincipalLogin(ServicioAlmacenamientoUsuarios objServAlmacUsuarios) {
+        this.objServAlmacUsuarios = objServAlmacUsuarios;
+    }
+
     /**
      * Creates new form VtnPrincipalLogin1
      */
     public VtnPrincipalLogin() {
         initComponents();
-        MatteBorder bordeInferior = new MatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY);
+        MatteBorder bordeInferior = new MatteBorder(0, 0, 1, 0, Color.white);
         jTextFieldUsuario.setBorder(bordeInferior);
-        jTextFieldPassword.setBorder(bordeInferior);
+        jPasswordFieldContrasena.setBorder(bordeInferior);
     }
 
     public void asociarServiciosAlmacenamiento(
@@ -62,45 +67,53 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
         jLabelUsuario = new javax.swing.JLabel();
         jLabelPassword = new javax.swing.JLabel();
         jTextFieldUsuario = new javax.swing.JTextField();
-        jTextFieldPassword = new javax.swing.JTextField();
         jButtonIngresar = new javax.swing.JButton();
+        jPasswordFieldContrasena = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabelIniciarSesion.setFont(new java.awt.Font("Roboto Thin", 0, 36)); // NOI18N
+        jLabelIniciarSesion.setFont(new java.awt.Font("Roboto Condensed Light", 0, 24)); // NOI18N
+        jLabelIniciarSesion.setForeground(new java.awt.Color(255, 0, 102));
         jLabelIniciarSesion.setText("Iniciar Sesion");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(186, Short.MAX_VALUE)
-                .addComponent(jLabelIniciarSesion)
-                .addGap(169, 169, 169))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(jLabelIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(174, 174, 174))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
-                .addComponent(jLabelIniciarSesion)
-                .addGap(37, 37, 37))
+                .addGap(28, 28, 28)
+                .addComponent(jLabelIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabelNoCuenta.setFont(new java.awt.Font("Roboto Thin", 0, 14)); // NOI18N
         jLabelNoCuenta.setText("¿No tienes una cuenta?");
 
-        jButtonRegistrar.setBackground(new java.awt.Color(204, 204, 255));
         jButtonRegistrar.setFont(new java.awt.Font("Roboto Thin", 0, 14)); // NOI18N
-        jButtonRegistrar.setForeground(new java.awt.Color(153, 0, 153));
+        jButtonRegistrar.setForeground(new java.awt.Color(255, 0, 102));
         jButtonRegistrar.setText("Registrate");
+        jButtonRegistrar.setBorder(null);
         jButtonRegistrar.setBorderPainted(false);
+        jButtonRegistrar.setContentAreaFilled(false);
+        jButtonRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonRegistrarMouseEntered(evt);
+            }
+        });
         jButtonRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegistrarActionPerformed(evt);
@@ -112,33 +125,37 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(177, Short.MAX_VALUE)
+                .addContainerGap(121, Short.MAX_VALUE)
                 .addComponent(jLabelNoCuenta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonRegistrar)
-                .addGap(138, 138, 138))
+                .addGap(119, 119, 119))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNoCuenta)
                     .addComponent(jButtonRegistrar))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 0, 102));
 
-        jLabelUsuario.setFont(new java.awt.Font("Roboto Thin", 0, 14)); // NOI18N
+        jLabelUsuario.setFont(new java.awt.Font("Roboto Condensed Light", 0, 15)); // NOI18N
+        jLabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsuario.setText("Usuario");
 
-        jLabelPassword.setFont(new java.awt.Font("Roboto Thin", 0, 14)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Roboto Condensed Light", 0, 15)); // NOI18N
+        jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPassword.setText("Contraseña");
 
-        jTextFieldUsuario.setFont(new java.awt.Font("Roboto Thin", 2, 14)); // NOI18N
+        jTextFieldUsuario.setBackground(new java.awt.Color(255, 0, 102));
+        jTextFieldUsuario.setFont(new java.awt.Font("Roboto Condensed Light", 2, 15)); // NOI18N
+        jTextFieldUsuario.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldUsuario.setBorder(null);
         jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,62 +163,62 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldPassword.setFont(new java.awt.Font("Roboto Thin", 2, 14)); // NOI18N
-        jTextFieldPassword.setBorder(null);
-
-        jButtonIngresar.setBackground(new java.awt.Color(204, 204, 255));
-        jButtonIngresar.setFont(new java.awt.Font("Roboto Thin", 0, 14)); // NOI18N
-        jButtonIngresar.setForeground(new java.awt.Color(153, 0, 153));
+        jButtonIngresar.setBackground(new java.awt.Color(255, 0, 102));
+        jButtonIngresar.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
+        jButtonIngresar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonIngresar.setText("Ingresar");
-        jButtonIngresar.setBorderPainted(false);
+        jButtonIngresar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButtonIngresar.setContentAreaFilled(false);
+        jButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIngresarActionPerformed(evt);
             }
         });
 
+        jPasswordFieldContrasena.setBackground(new java.awt.Color(255, 0, 102));
+        jPasswordFieldContrasena.setFont(new java.awt.Font("Roboto Condensed Light", 2, 15)); // NOI18N
+        jPasswordFieldContrasena.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordFieldContrasena.setBorder(null);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonIngresar)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelPassword)
-                            .addComponent(jLabelUsuario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldPassword)
-                            .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(144, 144, 144))
+                        .addGap(92, 92, 92)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabelUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPasswordFieldContrasena, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(182, 182, 182)
+                        .addComponent(jButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelUsuario)
-                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addComponent(jLabelUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPassword)
-                    .addComponent(jTextFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonIngresar)
-                .addGap(16, 16, 16))
+                .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPasswordFieldContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
         VtnPrincipalSignUp objVtnPrincipalSignUp
@@ -211,14 +228,20 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
-        boolean usuarioAutenticado, bandera;
+        //se quema un usuario por defecto para iniciar sesion rapidamente
+        if (objServAlmacUsuarios.listarUsuarios().isEmpty()) {
+            Usuario userDefecto = new Usuario("admin", "admin@correo.com", "1234", "Admin");
+            objServAlmacUsuarios.registrarUsuario(userDefecto);
+            System.out.println(objServAlmacUsuarios.listarUsuarios());
+        }
+        boolean usuarioAutenticado;
         usuarioAutenticado = false;
-        
+
         //Validar credenciales de inicio de sesion
         for (int i = 0; i < objServAlmacUsuarios.listarUsuarios().size(); i++) {
             boolean existeUsuario = this.objServAlmacUsuarios.listarUsuarios().get(i).getNombreUser().equals(jTextFieldUsuario.getText());
             if (existeUsuario) {
-                boolean passOk = this.objServAlmacUsuarios.listarUsuarios().get(i).getPassword().equals(jTextFieldPassword.getText());
+                boolean passOk = this.objServAlmacUsuarios.listarUsuarios().get(i).getPassword().equals(jPasswordFieldContrasena.getText());
                 if (passOk) {
                     usuarioAutenticado = true;
                     Utilidades.mensajeExito("Bienvenido " + jTextFieldUsuario.getText(), "Inicio de sesion exitoso");
@@ -233,10 +256,18 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
 
             objVtnPrincipalAdmin.setVisible(true);
         } else {
-            Utilidades.mensajeError("Usuario o contraseña incrrectos", "Error de inicio de sesion");
+            Utilidades.mensajeError("Usuario o contraseña incorrectos", "Error de inicio de sesion");
         }
 
     }//GEN-LAST:event_jButtonIngresarActionPerformed
+
+    private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
+
+    private void jButtonRegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRegistrarMouseEntered
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -249,7 +280,7 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextFieldPassword;
+    private javax.swing.JPasswordField jPasswordFieldContrasena;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }

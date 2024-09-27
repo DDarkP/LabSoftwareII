@@ -14,7 +14,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-public class VtnPrincipalAdmin extends javax.swing.JFrame {
+public final class VtnPrincipalAdmin extends javax.swing.JFrame {
 
     private VtnVerEstadisticas objVtnVerEstadisticas;
     private VtnListarConferencias objVtnListarConferencias;
@@ -28,6 +28,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     public VtnPrincipalAdmin() {
         initComponents();
         establecerIconoOrganización();
+        asociarServiciosAlmacenamiento(objServicio, objServicio1, objServicio2, objServicio3);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
@@ -43,22 +44,22 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         relacionarInternalFrameConJdesptokPane();
     }
 
-    public void asociarServicoAlmacenamientoConferencias(ServicioAlmacenamientoConferencias objServicio) {
+    public void asociarServicioAlmacenamientoConferencias(ServicioAlmacenamientoConferencias objServicio) {
         this.objServicio = objServicio;
         relacionarInternalFrameConJdesptokPane();
     }
 
-    public void asociarServicoAlmacenamientoArticulos(ServicioAlmacenamientoArticulos objServicio1) {
+    public void asociarServicioAlmacenamientoArticulos(ServicioAlmacenamientoArticulos objServicio1) {
         this.objServicio1 = objServicio1;
         relacionarInternalFrameConJdesptokPane();
     }
 
-    public void asociarServicoAlmacenamientoOrganizadores(ServicioAlmacenamientoOrganizadores objServicio2) {
+    public void asociarServicioAlmacenamientoOrganizadores(ServicioAlmacenamientoOrganizadores objServicio2) {
         this.objServicio2 = objServicio2;
         relacionarInternalFrameConJdesptokPane();
     }
     
-    public void asociarServicoAlmacenamientoUsuarios(ServicioAlmacenamientoUsuarios objServicio3) {
+    public void asociarServicioAlmacenamientoUsuarios(ServicioAlmacenamientoUsuarios objServicio3) {
         this.objServicio3 = objServicio3;
         relacionarInternalFrameConJdesptokPane();
     }
@@ -266,7 +267,6 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGestionarConferenciasActionPerformed
 
     private void jButtonGestionarOrganizadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarOrganizadoresActionPerformed
-//        this.objVtnVerOrganizadores.setVisible(false);
         this.objListarOrganizadores.setVisible(true);
         this.objVtnListarArticulos.setVisible(false);
         this.objVtnListarConferencias.setVisible(false);
