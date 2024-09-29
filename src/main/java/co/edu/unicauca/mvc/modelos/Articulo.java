@@ -1,9 +1,12 @@
 package co.edu.unicauca.mvc.modelos;
 
+import java.util.List;
+
 public class Articulo {
    private int idArticulo;
    private String titulo;
    private String autores;
+   private Revision revision;
    
    private Conferencia objConferencia;
 
@@ -47,6 +50,14 @@ public class Articulo {
 
     public void setObjConferencia(Conferencia objConferencia) {
         this.objConferencia = objConferencia;
+    }
+
+    public Revision getRevision() {
+        return revision;
+    }
+
+    public void setRevision(Revision revision) {
+        this.revision = revision;
     }
    
    

@@ -7,9 +7,12 @@ package co.edu.unicauca.mvc.vistas.registroInicioSesion;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoUsuarios;
 import co.edu.unicauca.mvc.modelos.Usuario;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
+import co.edu.unicauca.mvc.vistas.adminConferencia.VtnPrincipalAdmin;
+import co.edu.unicauca.mvc.vistas.organizadores.VtnPrincipalOrganizador;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.border.MatteBorder;
 
 public class VtnPrincipalSignUp extends javax.swing.JFrame {
@@ -20,7 +23,7 @@ public class VtnPrincipalSignUp extends javax.swing.JFrame {
     public VtnPrincipalSignUp(ServicioAlmacenamientoUsuarios objServicioAlmacenamiento) {
         initComponents();
         this.objServicio = objServicioAlmacenamiento;
-        
+
         MatteBorder bordeInferior = new MatteBorder(0, 0, 1, 0, Color.LIGHT_GRAY);
         jTextFieldUsuario.setBorder(bordeInferior);
         jTextFieldPassword.setBorder(bordeInferior);
@@ -268,11 +271,14 @@ public class VtnPrincipalSignUp extends javax.swing.JFrame {
 
         if (bandera == true) {
             Utilidades.mensajeExito("Registro exitoso", "Registro exitoso");
+            VtnPrincipalOrganizador objVtnPrincipalOrganizador
+                    = new VtnPrincipalOrganizador();
+            dispose();
         } else {
-            Utilidades.mensajeError("Articulo no almacenado", "Error al almacenar el articulo");
+            Utilidades.mensajeError("No se ha podido crear el usuario", "Error en el registro");
         }
-        int size=objServicio.listarUsuarios().size();
-        System.out.println(objServicio.listarUsuarios().get(size-1).toString());
+
+
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed

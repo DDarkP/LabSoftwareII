@@ -8,9 +8,9 @@ import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoUsuarios;
-import co.edu.unicauca.mvc.vistas.adminConferencia.VtnPrincipalAdmin;
+import co.edu.unicauca.mvc.vistas.adminConferencia.VtnRegistrarConferencia;
+import co.edu.unicauca.mvc.vistas.organizadores.VtnPrincipalOrganizador;
 import co.edu.unicauca.mvc.vistas.registroInicioSesion.VtnPrincipalLogin;
-import co.edu.unicauca.mvc.vistas.registroInicioSesion.VtnPrincipalSignUp;
 import co.edu.unicauca.mvc.vistas.asistente.VtnPrincipalAsistente;
 import co.edu.unicauca.mvc.vistas.autorPublicacion.VtnPrincipalAutor;
 import javax.swing.UIManager;
@@ -38,11 +38,11 @@ public class Test {
                 = new ServicioAlmacenamientoOrganizadores(objRepositorio3);
         ServicioAlmacenamientoUsuarios objServicio4
                 = new ServicioAlmacenamientoUsuarios(objRepositorio4);
-
+        
         VtnPrincipalAsistente objVtnAsistente = new VtnPrincipalAsistente();
         VtnPrincipalAutor objVtnAutor = new VtnPrincipalAutor();
-        VtnPrincipalSignUp objVtnPrincipalSignUp = new VtnPrincipalSignUp(objServicio4);
-
+        VtnPrincipalLogin objVtnPrincipalLogin = new VtnPrincipalLogin();
+        
         objServicio1.addObserver(objVtnAsistente);
         objServicio1.addObserver(objVtnAutor);
         objServicio2.addObserver(objVtnAsistente);
@@ -51,18 +51,12 @@ public class Test {
         objServicio3.addObserver(objVtnAutor);
         objServicio4.addObserver(objVtnAsistente);
         objServicio4.addObserver(objVtnAutor);
-        
-        VtnPrincipalLogin objVtnPrincipalLogin = new VtnPrincipalLogin();
-        VtnPrincipalAdmin objVtnPrincipal = new VtnPrincipalAdmin();        
-        objVtnPrincipal.asociarServicioAlmacenamientoConferencias(objServicio1);
-        objVtnPrincipal.asociarServicioAlmacenamientoArticulos(objServicio2);//new
-        objVtnPrincipal.asociarServicioAlmacenamientoOrganizadores(objServicio3);
-        objVtnPrincipalLogin.asociarServiciosAlmacenamiento(objServicio4);
+
+        objVtnPrincipalLogin.asociarServicoAlmacenamientoUsuarios(objServicio4);
+        objVtnPrincipalLogin.asociarServicoAlmacenamientoConferencias(objServicio1);
+        objVtnPrincipalLogin.asociarServicoAlmacenamientoArticulos(objServicio2);
         
         objVtnPrincipalLogin.setVisible(true);
-//        objVtnPrincipal.setVisible(true);
-//        objVtnAsistente.setVisible(true);
-//        objVtnAutor.setVisible(true);
     }
 
     private static void seleccionarLookAndField() {

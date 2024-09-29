@@ -1,6 +1,5 @@
 package co.edu.unicauca.mvc.vistas.adminConferencia;
 
-
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,47 +9,45 @@ import co.edu.unicauca.mvc.modelos.Conferencia;
 
 public class VtnListarConferencias extends javax.swing.JInternalFrame {
 
-    private ServicioAlmacenamientoConferencias objServicioAlmacenamiento;
-    
+    private ServicioAlmacenamientoConferencias objServicioAlmacConferencias;
+
     public VtnListarConferencias(ServicioAlmacenamientoConferencias objServicioAlmacenamiento) {
         initComponents();
-        this.objServicioAlmacenamiento=objServicioAlmacenamiento;
+        this.objServicioAlmacConferencias = objServicioAlmacenamiento;
         iniciarlizarTabla();
     }
 
-    private void iniciarlizarTabla()
-    {
-       DefaultTableModel model= new DefaultTableModel();       
-       model.addColumn("Nombre");       
-       model.addColumn("Fecha de inicio");
-       model.addColumn("Fecha de fin");
-       model.addColumn("Costo");
-       this.jTableListadoConferencias.setModel(model);
+    private void iniciarlizarTabla() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Nombre");
+        model.addColumn("Fecha de inicio");
+        model.addColumn("Fecha de fin");
+        model.addColumn("Costo");
+        this.jTableListadoConferencias.setModel(model);
     }
-    
-    public void limpiarTabla(){
-        
-        DefaultTableModel modelo=(DefaultTableModel) this.jTableListadoConferencias.getModel();
-        int filas=this.jTableListadoConferencias.getRowCount();
-        for (int i = 0;filas>i; i++) {
+
+    public void limpiarTabla() {
+
+        DefaultTableModel modelo = (DefaultTableModel) this.jTableListadoConferencias.getModel();
+        int filas = this.jTableListadoConferencias.getRowCount();
+        for (int i = 0; filas > i; i++) {
             modelo.removeRow(0);
-        }        
+        }
     }
-    
-    private void llenarTabla()
-    {
-        DefaultTableModel model=(DefaultTableModel) this.jTableListadoConferencias.getModel();
+
+    private void llenarTabla() {
+        DefaultTableModel model = (DefaultTableModel) this.jTableListadoConferencias.getModel();
         limpiarTabla();
-        ArrayList<Conferencia> listaConferencias= (ArrayList<Conferencia>) this.objServicioAlmacenamiento.listarConferencias();
+        ArrayList<Conferencia> listaConferencias = (ArrayList<Conferencia>) this.objServicioAlmacConferencias.listarConferencias();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-       
+
         for (int i = 0; i < listaConferencias.size(); i++) {
-            String [] fila= { listaConferencias.get(i).getNombre(), formatter.format(listaConferencias.get(i).getFechaInicio()),formatter.format(listaConferencias.get(i).getFechaFin()),listaConferencias.get(i).getCostoInscripcion()+""};
+            String[] fila = {listaConferencias.get(i).getNombre(), formatter.format(listaConferencias.get(i).getFechaInicio()), formatter.format(listaConferencias.get(i).getFechaFin()), listaConferencias.get(i).getCostoInscripcion() + ""};
             model.addRow(fila);
         }
-        
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -173,12 +170,12 @@ public class VtnListarConferencias extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
-       llenarTabla();
+        llenarTabla();
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        VtnRegistrarConferencia objVtnRegistrarConferencia= 
-                new VtnRegistrarConferencia(this.objServicioAlmacenamiento);
+        VtnRegistrarConferencia objVtnRegistrarConferencia
+                = new VtnRegistrarConferencia(this.objServicioAlmacConferencias);
         objVtnRegistrarConferencia.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnRegistrarConferencia.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed

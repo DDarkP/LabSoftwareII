@@ -4,8 +4,13 @@
  */
 package co.edu.unicauca.mvc.vistas.registroInicioSesion;
 
-import co.edu.unicauca.mvc.vistas.adminConferencia.VtnPrincipalAdmin;
+import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
+import co.edu.unicauca.mvc.vistas.organizadores.VtnPrincipalOrganizador;
+//import co.edu.unicauca.mvc.vistas.adminConferencia.VtnPrincipalAdmin;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoUsuarios;
+//import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
+import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
+//import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
 import co.edu.unicauca.mvc.modelos.Usuario;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
 import javax.swing.border.MatteBorder;
@@ -19,11 +24,9 @@ import javax.swing.JFrame;
 public class VtnPrincipalLogin extends javax.swing.JFrame {
 
     private ServicioAlmacenamientoUsuarios objServAlmacUsuarios;
+    private ServicioAlmacenamientoConferencias objServAlmacConferencias;
+    private ServicioAlmacenamientoArticulos objServAlmacArticulos;
     private VtnPrincipalSignUp objVtnPrincipalSignUp;
-
-    public VtnPrincipalLogin(ServicioAlmacenamientoUsuarios objServAlmacUsuarios) {
-        this.objServAlmacUsuarios = objServAlmacUsuarios;
-    }
 
     /**
      * Creates new form VtnPrincipalLogin1
@@ -35,15 +38,20 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
         jPasswordFieldContrasena.setBorder(bordeInferior);
     }
 
-    public void asociarServiciosAlmacenamiento(
-            ServicioAlmacenamientoUsuarios objServicio) {
-        this.objServAlmacUsuarios = objServicio;
-    }
-
     public void asociarServicoAlmacenamientoUsuarios(ServicioAlmacenamientoUsuarios objServicio) {
         this.objServAlmacUsuarios = objServicio;
         relacionarInternalFrameConJdesptokPane();
     }
+    
+    public void asociarServicoAlmacenamientoConferencias(ServicioAlmacenamientoConferencias objServicio) {
+        this.objServAlmacConferencias = objServicio;
+        relacionarInternalFrameConJdesptokPane();
+    }
+    
+    public void asociarServicoAlmacenamientoArticulos(ServicioAlmacenamientoArticulos objServicio) {
+        this.objServAlmacArticulos = objServicio;
+        relacionarInternalFrameConJdesptokPane();
+    }  
 
     private void relacionarInternalFrameConJdesptokPane() {
         this.objVtnPrincipalSignUp = new VtnPrincipalSignUp(this.objServAlmacUsuarios);
@@ -221,21 +229,20 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        VtnPrincipalSignUp objVtnPrincipalSignUp
-                = new VtnPrincipalSignUp(this.objServAlmacUsuarios);
         objVtnPrincipalSignUp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         objVtnPrincipalSignUp.setVisible(true);
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
+        boolean usuarioAutenticado;
+        usuarioAutenticado = false;
+
         //se quema un usuario por defecto para iniciar sesion rapidamente
         if (objServAlmacUsuarios.listarUsuarios().isEmpty()) {
             Usuario userDefecto = new Usuario("admin", "admin@correo.com", "1234", "Admin");
             objServAlmacUsuarios.registrarUsuario(userDefecto);
             System.out.println(objServAlmacUsuarios.listarUsuarios());
         }
-        boolean usuarioAutenticado;
-        usuarioAutenticado = false;
 
         //Validar credenciales de inicio de sesion
         for (int i = 0; i < objServAlmacUsuarios.listarUsuarios().size(); i++) {
@@ -250,11 +257,11 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
         }
         //si el inicio de sesion es exitoso lanza la ventana correspondiente al rol, caso contrario lanza mensaje de error
         if (usuarioAutenticado) {
-            VtnPrincipalAdmin objVtnPrincipalAdmin
-                    = new VtnPrincipalAdmin();
-            objVtnPrincipalAdmin.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-            objVtnPrincipalAdmin.setVisible(true);
+            System.out.println("Estado 1: " + objServAlmacConferencias);
+            VtnPrincipalOrganizador objVtnPrincipalOrganizador = new VtnPrincipalOrganizador();
+            objVtnPrincipalOrganizador.asociarServiciosAlmacenamiento(objServAlmacConferencias, objServAlmacUsuarios,objServAlmacArticulos);
+            objVtnPrincipalOrganizador.setVisible(true);
+            System.out.println("Estado 2: " + objServAlmacConferencias);
         } else {
             Utilidades.mensajeError("Usuario o contraseña incorrectos", "Error de inicio de sesion");
         }

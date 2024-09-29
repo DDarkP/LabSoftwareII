@@ -7,14 +7,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 public class VtnRegistrarConferencia extends javax.swing.JFrame {
 
     private ServicioAlmacenamientoConferencias objServicioAlmacenamiento;
-    
+
     public VtnRegistrarConferencia(ServicioAlmacenamientoConferencias objServicioAlmacenamiento) {
         initComponents();
-        this.objServicioAlmacenamiento=objServicioAlmacenamiento;
+        this.objServicioAlmacenamiento = objServicioAlmacenamiento;
     }
 
     /**
@@ -154,50 +153,44 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        
         String nombre, fechaInicio, fechaFin, costo;
         Date fechaInicioDate = null, fechaFinDate = null;
         float costoInscripcion;
         boolean bandera;
-        
-        nombre=this.jTextFieldNombre.getText();
-        fechaInicio=this.jTextFieldFechaInicio.getText();
-        fechaFin=this.jTextFieldFechaFin.getText();
-        costo=this.jTextFieldCosto.getText();
-        
+
+        nombre = this.jTextFieldNombre.getText();
+        fechaInicio = this.jTextFieldFechaInicio.getText();
+        fechaFin = this.jTextFieldFechaFin.getText();
+        costo = this.jTextFieldCosto.getText();
+
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         try {
-                fechaInicioDate=formatter.parse(fechaInicio);
-            
-            
+            fechaInicioDate = formatter.parse(fechaInicio);
+
             try {
-                fechaFinDate=formatter.parse(fechaFin);
-                
-                costoInscripcion=Float.parseFloat(costo);
-        
-                Conferencia objConferencia= new Conferencia(nombre, fechaInicioDate, fechaFinDate, costoInscripcion);
+                fechaFinDate = formatter.parse(fechaFin);
 
+                costoInscripcion = Float.parseFloat(costo);
 
-                bandera=this.objServicioAlmacenamiento.almacenarConferencia(objConferencia);
+                Conferencia objConferencia = new Conferencia(nombre, fechaInicioDate, fechaFinDate, costoInscripcion);
 
-                if(bandera)
-                    Utilidades.mensajeExito( "El registro de la conferencia fue exitoso","Registro exitoso");
-                else
-                    Utilidades.mensajeError( "El registro de la conferencia no se realizo","Error en el registro");
+                bandera = this.objServicioAlmacenamiento.almacenarConferencia(objConferencia);
 
+                if (bandera) {
+                    Utilidades.mensajeExito("El registro de la conferencia fue exitoso", "Registro exitoso");
+                } else {
+                    Utilidades.mensajeError("El registro de la conferencia no se realizo", "Error en el registro");
+                }
 
             } catch (ParseException ex) {
-                Utilidades.mensajeAdvertencia("La fecha de fin no sigue el formato dd/MM/yyyy","Fecha incorrecta");
+                Utilidades.mensajeAdvertencia("La fecha de fin no sigue el formato dd/MM/yyyy", "Fecha incorrecta");
             }
-            
-            
+
         } catch (ParseException ex) {
-            Utilidades.mensajeAdvertencia("La fecha de inicio no sigue el formato dd/MM/yyyy","Fecha incorrecta");
+            Utilidades.mensajeAdvertencia("La fecha de inicio no sigue el formato dd/MM/yyyy", "Fecha incorrecta");
         }
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
 

@@ -127,36 +127,28 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jTextFieldEmail" alignment="0" pref="310" max="32767" attributes="0"/>
-                              <Component id="jLabelUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldUsuario" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelNombreCompleto" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldNombreCompleto" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="103" alignment="1" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelPassword" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jTextFieldPassword" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabelPassword1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="jComboBoxRol" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabelPassword" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jTextFieldEmail" alignment="0" pref="310" max="32767" attributes="0"/>
+                                  <Component id="jLabelUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldUsuario" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabelNombreCompleto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNombreCompleto" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                              <Component id="jTextFieldPassword" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jLabelPassword1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxRol" alignment="0" pref="310" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="104" pref="104" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
