@@ -166,7 +166,7 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
 
         jTextFieldUsuario.setBackground(new java.awt.Color(0, 102, 153));
         jTextFieldUsuario.setFont(new java.awt.Font("Roboto Condensed Light", 2, 15)); // NOI18N
-        jTextFieldUsuario.setForeground(new java.awt.Color(0, 102, 153));
+        jTextFieldUsuario.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldUsuario.setBorder(null);
         jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +189,7 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
 
         jPasswordFieldContrasena.setBackground(new java.awt.Color(0, 102, 153));
         jPasswordFieldContrasena.setFont(new java.awt.Font("Roboto Condensed Light", 2, 15)); // NOI18N
-        jPasswordFieldContrasena.setForeground(new java.awt.Color(0, 102, 153));
+        jPasswordFieldContrasena.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordFieldContrasena.setBorder(null);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
