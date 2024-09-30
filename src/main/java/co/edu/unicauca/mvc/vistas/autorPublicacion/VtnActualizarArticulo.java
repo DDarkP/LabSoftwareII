@@ -150,6 +150,8 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
             }
         });
 
+        txtpdf.setEnabled(false);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(

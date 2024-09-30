@@ -259,6 +259,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtpdf">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

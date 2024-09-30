@@ -134,6 +134,7 @@ public class VtnRegistrarArticulo extends javax.swing.JFrame {
             }
         });
 
+        txtPdf.setEnabled(false);
         txtPdf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPdfActionPerformed(evt);
