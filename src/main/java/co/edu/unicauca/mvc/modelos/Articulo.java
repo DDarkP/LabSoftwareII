@@ -1,7 +1,6 @@
 package co.edu.unicauca.mvc.modelos;
 
 import java.io.File;
-import java.util.List;
 
 public class Articulo {
 
