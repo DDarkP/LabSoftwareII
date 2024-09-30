@@ -99,6 +99,12 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldFechaInicio.setText("25/09/2024");
+
+        jTextFieldFechaFin.setText("24/11/2024");
+
+        jTextFieldCosto.setText("100");
+
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
@@ -189,8 +195,7 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
         } catch (ParseException ex) {
             Utilidades.mensajeAdvertencia("La fecha de inicio no sigue el formato dd/MM/yyyy", "Fecha incorrecta");
         }
-
-
+        dispose();
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
 

@@ -14,63 +14,6 @@ public class Articulo {
 
     public Articulo() {
     }
-    
-    
-//
-//    public Articulo(int idArticulo, String titulo, String autores, File archivoPdf) {
-//        this.idArticulo = idArticulo;
-//        this.titulo = titulo;
-//        this.autores = autores;
-//        this.archivoPdf = archivoPdf;
-//    }
-//
-//    public int getIdArticulo() {
-//        return idArticulo;
-//    }
-//
-//    public void setIdArticulo(int idArticulo) {
-//        this.idArticulo = idArticulo;
-//    }
-//
-//    public String getTitulo() {
-//        return titulo;
-//    }
-//
-//    public void setTitulo(String titulo) {
-//        this.titulo = titulo;
-//    }
-//
-//    public String getAutores() {
-//        return autores;
-//    }
-//
-//    public void setAutores(String autores) {
-//        this.autores = autores;
-//    }
-//
-//    public Conferencia getObjConferencia() {
-//        return objConferencia;
-//    }
-//
-//    public void setObjConferencia(Conferencia objConferencia) {
-//        this.objConferencia = objConferencia;
-//    }
-//
-//    public Revision getRevision() {
-//        return revision;
-//    }
-//
-//    public void setRevision(Revision revision) {
-//        this.revision = revision;
-//    }
-//
-//    public File getArchivoPdf() {
-//        return archivoPdf;
-//    }
-//
-//    public void setArchivoPdf(File archivoPdf) {
-//        this.archivoPdf = archivoPdf;
-//    }
 
     public Articulo(int idArticulo, String titulo, String autores, Revision revision, File archivoPdf, Conferencia objConferencia) {
         this.idArticulo = idArticulo;

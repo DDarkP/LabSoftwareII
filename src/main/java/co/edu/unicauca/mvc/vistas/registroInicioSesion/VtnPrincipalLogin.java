@@ -277,9 +277,9 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
                     break;
                 case "Revisor":
                     System.out.println("Acceso a la creación y edición de artículos.");
-//                    VtnPrincipalRevisor objVtnPrincipalRevisor = new VtnPrincipalRevisor(objServAlmacArticulos);
-//                    System.out.println(objVtnPrincipalRevisor);
-//                    objVtnPrincipalRevisor.setVisible(true);
+                    VtnPrincipalRevisor objVtnPrincipalRevisor = new VtnPrincipalRevisor();
+                    objVtnPrincipalRevisor.asociarServiciosAlmacenamiento(objServAlmacConferencias, objServAlmacUsuarios, objServAlmacArticulos);
+                    objVtnPrincipalRevisor.setVisible(true);
                     break;
                 default:
                     System.out.println("Rol no reconocido.");

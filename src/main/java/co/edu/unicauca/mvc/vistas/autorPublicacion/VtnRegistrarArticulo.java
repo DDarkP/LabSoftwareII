@@ -111,8 +111,11 @@ public class VtnRegistrarArticulo extends javax.swing.JFrame {
 
         jLabel2.setText("Autores:");
 
+        jTextFieldTitulo.setText("Articulo 1");
+
         jTextAreaAutores.setColumns(20);
         jTextAreaAutores.setRows(5);
+        jTextAreaAutores.setText("Daniel\nFelipe");
         jScrollPane1.setViewportView(jTextAreaAutores);
 
         jButtonRegistrar.setText("Registrar");
@@ -131,7 +134,6 @@ public class VtnRegistrarArticulo extends javax.swing.JFrame {
             }
         });
 
-        txtPdf.setText("jTextField1");
         txtPdf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPdfActionPerformed(evt);
@@ -143,9 +145,9 @@ public class VtnRegistrarArticulo extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,16 +157,15 @@ public class VtnRegistrarArticulo extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBoxConferencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1)
-                            .addComponent(jTextFieldTitulo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                        .addComponent(jButtonRegistrar)
-                        .addGap(32, 32, 32))
+                            .addComponent(jTextFieldTitulo)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(81, 81, 81)
                         .addComponent(btnSeleccionarPdf)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPdf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPdf)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jButtonRegistrar)
+                .addGap(32, 32, 32))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,18 +174,19 @@ public class VtnRegistrarArticulo extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextFieldTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel2))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addGap(41, 41, 41)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSeleccionarPdf)
-                    .addComponent(txtPdf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                    .addComponent(txtPdf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSeleccionarPdf))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -212,7 +214,8 @@ public class VtnRegistrarArticulo extends javax.swing.JFrame {
         objArticulo.setTitulo(titulo);
         objArticulo.setAutores(autores);
         objArticulo.setObjConferencia(objConferencia);
-//        objArticulo.setArchivoPdf(archivoSeleccionado);
+        objArticulo.setArchivoPdf(archivoSeleccionado);
+        
            if (archivoSeleccionado == null) {
                 JOptionPane.showMessageDialog(this, "Por favor, seleccione un archivo PDF.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -227,6 +230,7 @@ public class VtnRegistrarArticulo extends javax.swing.JFrame {
         {
             Utilidades.mensajeError("Articulo no almacenado","Error al almacenar el articulo");
         }
+        dispose();
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void btnSeleccionarPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarPdfActionPerformed
