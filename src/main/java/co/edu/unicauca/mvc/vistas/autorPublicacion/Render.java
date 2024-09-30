@@ -1,4 +1,4 @@
-package co.edu.unicauca.mvc.vistas.articulos;
+package co.edu.unicauca.mvc.vistas.autorPublicacion;
 
 import java.awt.Color;
 import java.awt.Component;

@@ -277,8 +277,7 @@ public class VtnPrincipalSignUp extends javax.swing.JFrame {
         } else {
             Utilidades.mensajeError("No se ha podido crear el usuario", "Error en el registro");
         }
-
-
+        dispose();
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed

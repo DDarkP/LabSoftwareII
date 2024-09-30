@@ -1,5 +1,7 @@
-package co.edu.unicauca.mvc.vistas.articulos;
+package co.edu.unicauca.mvc.vistas.autorPublicacion;
 
+import co.edu.unicauca.mvc.vistas.autorPublicacion.VtnActualizarArticulo;
+import co.edu.unicauca.mvc.vistas.autorPublicacion.VtnRegistrarArticulo;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.modelos.Articulo;

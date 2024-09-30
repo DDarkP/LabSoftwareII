@@ -4,7 +4,9 @@
  */
 package co.edu.unicauca.mvc.vistas.adminConferencia;
 
-import co.edu.unicauca.mvc.vistas.articulos.VtnListarArticulos;
+import co.edu.unicauca.mvc.vistas.organizadores.VtnListarConferencias;
+import co.edu.unicauca.mvc.vistas.revisores.VtnPrincipalRevisor;
+import co.edu.unicauca.mvc.vistas.autorPublicacion.VtnListarArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
@@ -16,7 +18,7 @@ import javax.swing.JFrame;
 
 public final class VtnPrincipalAdmin extends javax.swing.JFrame {
 
-    private VtnVerEstadisticas objVtnVerEstadisticas;
+    private VtnPrincipalRevisor objVtnVerEstadisticas;
     private VtnListarConferencias objVtnListarConferencias;
     private VtnListarArticulos objVtnListarArticulos;
     private VtnListarOrganizadores objListarOrganizadores;

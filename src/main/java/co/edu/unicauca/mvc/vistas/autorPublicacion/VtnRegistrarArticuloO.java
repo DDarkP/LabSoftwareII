@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package co.edu.unicauca.mvc.vistas.articulos;
+package co.edu.unicauca.mvc.vistas.autorPublicacion;
 
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
@@ -15,12 +15,12 @@ import java.util.ArrayList;
  *
  * @author HSVSTT2
  */
-public class VtnRegistrarArticulo extends javax.swing.JFrame {
+public class VtnRegistrarArticuloO extends javax.swing.JFrame {
 
     private ServicioAlmacenamientoArticulos objServicio1;
     private ServicioAlmacenamientoConferencias objServicio2;
     
-    public VtnRegistrarArticulo(
+    public VtnRegistrarArticuloO(
             ServicioAlmacenamientoArticulos objServicio1,
             ServicioAlmacenamientoConferencias objServicio2) {
         initComponents();

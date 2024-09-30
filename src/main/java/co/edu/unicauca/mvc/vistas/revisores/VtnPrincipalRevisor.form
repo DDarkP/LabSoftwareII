@@ -105,7 +105,7 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="jButtonGestionarConferencias">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Gestionar Articulos"/>
+                <Property name="text" type="java.lang.String" value="Gestionar conferencias"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonGestionarConferenciasActionPerformed"/>

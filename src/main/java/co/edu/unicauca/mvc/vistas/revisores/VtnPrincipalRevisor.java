@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package co.edu.unicauca.mvc.vistas.autorPublicacion;
+package co.edu.unicauca.mvc.vistas.revisores;
 
-import co.edu.unicauca.mvc.vistas.revisores.VtnPrincipalRevisor;
 import co.edu.unicauca.mvc.vistas.organizadores.*;
+import co.edu.unicauca.mvc.vistas.revisores.VtnPrincipalRevisor;
 import co.edu.unicauca.mvc.vistas.adminConferencia.*;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
@@ -14,15 +14,15 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-public final class VtnPrincipalAutor extends javax.swing.JFrame {
+public final class VtnPrincipalRevisor extends javax.swing.JFrame {
 
     private VtnPrincipalRevisor objVtnVerEstadisticas;
-    private VtnListarArticulos objVtnListarArticulos;
+    private VtnListarConferencias objVtnListarConferencias;
     private ServicioAlmacenamientoConferencias objServicio1;
     private ServicioAlmacenamientoUsuarios objServicio2;
     private ServicioAlmacenamientoArticulos objServicio3;
 
-    public VtnPrincipalAutor() {
+    public VtnPrincipalRevisor() {
         initComponents();
         establecerIconoOrganización();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -40,8 +40,11 @@ public final class VtnPrincipalAutor extends javax.swing.JFrame {
     }
 
     private void relacionarInternalFrameConJdesptokPane() {
-        this.objVtnListarArticulos = new VtnListarArticulos(objServicio3, objServicio1);
-        this.jDesktopPanelPrincipal.add(this.objVtnListarArticulos);
+//        this.objVtnVerEstadisticas = new VtnPrincipalRevisor(objServicio3);
+//        this.jDesktopPanelPrincipal.add(this.objVtnVerEstadisticas);
+        
+        this.objVtnListarConferencias = new VtnListarConferencias(this.objServicio1);
+        this.jDesktopPanelPrincipal.add(this.objVtnListarConferencias);
     }
 
     private void establecerIconoOrganización() {
@@ -72,7 +75,7 @@ public final class VtnPrincipalAutor extends javax.swing.JFrame {
 
         jPanelMenu.setBackground(new java.awt.Color(255, 0, 102));
 
-        jButtonGestionarConferencias.setText("Gestionar Articulos");
+        jButtonGestionarConferencias.setText("Gestionar conferencias");
         jButtonGestionarConferencias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGestionarConferenciasActionPerformed(evt);
@@ -184,12 +187,12 @@ public final class VtnPrincipalAutor extends javax.swing.JFrame {
 
     private void jButtonVerEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerEstadisticasActionPerformed
         this.objVtnVerEstadisticas.setVisible(true);
-        this.objVtnListarArticulos.setVisible(false);
+        this.objVtnListarConferencias.setVisible(false);
     }//GEN-LAST:event_jButtonVerEstadisticasActionPerformed
 
     private void jButtonGestionarConferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarConferenciasActionPerformed
-        this.objVtnListarArticulos.setVisible(true);
-//        this.objVtnVerEstadisticas.setVisible(false);
+        this.objVtnListarConferencias.setVisible(true);
+        this.objVtnVerEstadisticas.setVisible(false);
     }//GEN-LAST:event_jButtonGestionarConferenciasActionPerformed
 
 

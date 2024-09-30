@@ -13,6 +13,9 @@ import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 //import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
 import co.edu.unicauca.mvc.modelos.Usuario;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
+//import co.edu.unicauca.mvc.vistas.autorPublicacion.VtnNotificacionAutor;
+import co.edu.unicauca.mvc.vistas.autorPublicacion.VtnPrincipalAutor;
+import co.edu.unicauca.mvc.vistas.revisores.VtnPrincipalRevisor;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
 import javax.swing.JFrame;
@@ -42,16 +45,16 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
         this.objServAlmacUsuarios = objServicio;
         relacionarInternalFrameConJdesptokPane();
     }
-    
+
     public void asociarServicoAlmacenamientoConferencias(ServicioAlmacenamientoConferencias objServicio) {
         this.objServAlmacConferencias = objServicio;
         relacionarInternalFrameConJdesptokPane();
     }
-    
+
     public void asociarServicoAlmacenamientoArticulos(ServicioAlmacenamientoArticulos objServicio) {
         this.objServAlmacArticulos = objServicio;
         relacionarInternalFrameConJdesptokPane();
-    }  
+    }
 
     private void relacionarInternalFrameConJdesptokPane() {
         this.objVtnPrincipalSignUp = new VtnPrincipalSignUp(this.objServAlmacUsuarios);
@@ -236,6 +239,7 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
         boolean usuarioAutenticado;
         usuarioAutenticado = false;
+        String rolUsuario = null;
 
         //se quema un usuario por defecto para iniciar sesion rapidamente
         if (objServAlmacUsuarios.listarUsuarios().isEmpty()) {
@@ -251,17 +255,36 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
                 boolean passOk = this.objServAlmacUsuarios.listarUsuarios().get(i).getPassword().equals(jPasswordFieldContrasena.getText());
                 if (passOk) {
                     usuarioAutenticado = true;
-                    Utilidades.mensajeExito("Bienvenido " + jTextFieldUsuario.getText(), "Inicio de sesion exitoso");
+                    rolUsuario = objServAlmacUsuarios.listarUsuarios().get(i).getRol();
+                    Utilidades.mensajeExito("Bienvenido " + jTextFieldUsuario.getText(), "Rol: " + rolUsuario);
                 }
             }
         }
+
         //si el inicio de sesion es exitoso lanza la ventana correspondiente al rol, caso contrario lanza mensaje de error
         if (usuarioAutenticado) {
-            System.out.println("Estado 1: " + objServAlmacConferencias);
-            VtnPrincipalOrganizador objVtnPrincipalOrganizador = new VtnPrincipalOrganizador();
-            objVtnPrincipalOrganizador.asociarServiciosAlmacenamiento(objServAlmacConferencias, objServAlmacUsuarios,objServAlmacArticulos);
-            objVtnPrincipalOrganizador.setVisible(true);
-            System.out.println("Estado 2: " + objServAlmacConferencias);
+            switch (rolUsuario) {
+                case "Organizador":
+                    VtnPrincipalOrganizador objVtnPrincipalOrganizador = new VtnPrincipalOrganizador();
+                    objVtnPrincipalOrganizador.asociarServiciosAlmacenamiento(objServAlmacConferencias, objServAlmacUsuarios, objServAlmacArticulos);
+                    objVtnPrincipalOrganizador.setVisible(true);
+                    break;
+                case "Autor":
+                    System.out.println("Acceso a la revisión de artículos.");
+                    VtnPrincipalAutor objVtnPrincipalAutor = new VtnPrincipalAutor();
+                    objVtnPrincipalAutor.asociarServiciosAlmacenamiento(objServAlmacConferencias, objServAlmacUsuarios, objServAlmacArticulos);
+                    objVtnPrincipalAutor.setVisible(true);
+                    break;
+                case "Revisor":
+                    System.out.println("Acceso a la creación y edición de artículos.");
+//                    VtnPrincipalRevisor objVtnPrincipalRevisor = new VtnPrincipalRevisor(objServAlmacArticulos);
+//                    System.out.println(objVtnPrincipalRevisor);
+//                    objVtnPrincipalRevisor.setVisible(true);
+                    break;
+                default:
+                    System.out.println("Rol no reconocido.");
+                    break;
+            }
         } else {
             Utilidades.mensajeError("Usuario o contraseña incorrectos", "Error de inicio de sesion");
         }

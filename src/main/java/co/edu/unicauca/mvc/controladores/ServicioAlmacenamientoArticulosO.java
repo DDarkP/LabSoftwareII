@@ -3,23 +3,19 @@ package co.edu.unicauca.mvc.controladores;
 import co.edu.unicauca.mvc.accesoADatos.InterfaceRepositorioArticulo;
 import co.edu.unicauca.mvc.infraestructura.Subject;
 import co.edu.unicauca.mvc.modelos.Articulo;
-import java.io.File;
 import java.util.List;
 
 
-public class ServicioAlmacenamientoArticulos extends Subject{
+public class ServicioAlmacenamientoArticulosO extends Subject{
     private InterfaceRepositorioArticulo referenciaRepositorioArticulo;
-    private static final String PDF_DIRECTORY = "pdfs/";
-    public ServicioAlmacenamientoArticulos(InterfaceRepositorioArticulo referenciaRepositorioArticulo)
+    
+    public ServicioAlmacenamientoArticulosO(InterfaceRepositorioArticulo referenciaRepositorioArticulo)
     {
-        new File(PDF_DIRECTORY).mkdirs(); // Asegura que el directorio para PDFs existe
-
         this.referenciaRepositorioArticulo=referenciaRepositorioArticulo;
     }
     
     public boolean almacenarArticulo(Articulo objArticulo)
     {
-        
         return this.referenciaRepositorioArticulo.almacenarArticulo(objArticulo);
     }
       

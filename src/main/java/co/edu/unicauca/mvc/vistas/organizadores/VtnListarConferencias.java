@@ -1,5 +1,6 @@
-package co.edu.unicauca.mvc.vistas.adminConferencia;
+package co.edu.unicauca.mvc.vistas.organizadores;
 
+import co.edu.unicauca.mvc.vistas.organizadores.VtnRegistrarConferencia;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

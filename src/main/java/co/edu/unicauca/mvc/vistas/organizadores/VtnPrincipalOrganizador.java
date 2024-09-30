@@ -4,6 +4,7 @@
  */
 package co.edu.unicauca.mvc.vistas.organizadores;
 
+import co.edu.unicauca.mvc.vistas.revisores.VtnPrincipalRevisor;
 import co.edu.unicauca.mvc.vistas.adminConferencia.*;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
@@ -14,7 +15,7 @@ import javax.swing.JFrame;
 
 public final class VtnPrincipalOrganizador extends javax.swing.JFrame {
 
-    private VtnVerEstadisticas objVtnVerEstadisticas;
+    private VtnPrincipalRevisor objVtnVerEstadisticas;
     private VtnListarConferencias objVtnListarConferencias;
     private ServicioAlmacenamientoConferencias objServicio1;
     private ServicioAlmacenamientoUsuarios objServicio2;
@@ -37,10 +38,7 @@ public final class VtnPrincipalOrganizador extends javax.swing.JFrame {
         relacionarInternalFrameConJdesptokPane();
     }
 
-    private void relacionarInternalFrameConJdesptokPane() {
-        this.objVtnVerEstadisticas = new VtnVerEstadisticas(objServicio3);
-        this.jDesktopPanelPrincipal.add(this.objVtnVerEstadisticas);
-        
+    private void relacionarInternalFrameConJdesptokPane() {        
         this.objVtnListarConferencias = new VtnListarConferencias(this.objServicio1);
         this.jDesktopPanelPrincipal.add(this.objVtnListarConferencias);
     }

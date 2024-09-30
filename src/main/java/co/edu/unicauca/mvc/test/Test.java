@@ -8,11 +8,9 @@ import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoOrganizadores;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoUsuarios;
-import co.edu.unicauca.mvc.vistas.adminConferencia.VtnRegistrarConferencia;
-import co.edu.unicauca.mvc.vistas.organizadores.VtnPrincipalOrganizador;
 import co.edu.unicauca.mvc.vistas.registroInicioSesion.VtnPrincipalLogin;
 import co.edu.unicauca.mvc.vistas.asistente.VtnPrincipalAsistente;
-import co.edu.unicauca.mvc.vistas.autorPublicacion.VtnPrincipalAutor;
+import co.edu.unicauca.mvc.vistas.autorPublicacion.VtnNotificacionAutor;
 import javax.swing.UIManager;
 
 public class Test {
@@ -40,7 +38,7 @@ public class Test {
                 = new ServicioAlmacenamientoUsuarios(objRepositorio4);
         
         VtnPrincipalAsistente objVtnAsistente = new VtnPrincipalAsistente();
-        VtnPrincipalAutor objVtnAutor = new VtnPrincipalAutor();
+        VtnNotificacionAutor objVtnAutor = new VtnNotificacionAutor();
         VtnPrincipalLogin objVtnPrincipalLogin = new VtnPrincipalLogin();
         
         objServicio1.addObserver(objVtnAsistente);
