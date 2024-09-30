@@ -6,6 +6,9 @@ import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoArticulos;
 import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -217,49 +220,67 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
 
     private void jTableListarArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListarArticulosMouseClicked
         
-        int column = this.jTableListarArticulos.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY()/jTableListarArticulos.getRowHeight();
-        
-        if(row < jTableListarArticulos.getRowCount() && row >= 0 && column < jTableListarArticulos.getColumnCount() && column >= 0){
-            Object value = jTableListarArticulos.getValueAt(row, column);
-            
-            if(value instanceof JButton){
-                
-                ((JButton)value).doClick();
-                JButton boton = (JButton) value;
-                
-                String idArticulo = jTableListarArticulos.getValueAt(row, 0).toString();
-                int idArticuloConvertido=Integer.parseInt(idArticulo);
-                if(boton.getName().equals("Eliminar")){
-                    try{  
-                        if(Utilidades.mensajeConfirmacion("¿ Estás seguro de que quieres eliminar el artículo con identificador " + idArticulo + " " 
-                            +" ?", "Confirmación") == 0){
-                           boolean bandera=this.objServicio.eliminarArticulo(idArticuloConvertido);
-                           if(bandera==true)
-                           {
-                               Utilidades.mensajeExito("El articulo con identificador " + idArticuloConvertido + " fue eliminado exitosamente", "Articulo eliminado");
-                               llenarTabla();
-                           }
-                           else
-                           {
-                               Utilidades.mensajeAdvertencia("El artículo con identificador " + idArticuloConvertido + " no fue eliminado", "Error al eliminar");
-                        
-                           }
+      int column = this.jTableListarArticulos.getColumnModel().getColumnIndexAtX(evt.getX());
+    int row = evt.getY() / jTableListarArticulos.getRowHeight();
+
+    if (row < jTableListarArticulos.getRowCount() && row >= 0 && column < jTableListarArticulos.getColumnCount() && column >= 0) {
+        Object value = jTableListarArticulos.getValueAt(row, column);
+
+        if (value instanceof JButton) {
+
+            ((JButton) value).doClick();
+            JButton boton = (JButton) value;
+
+            String idArticulo = jTableListarArticulos.getValueAt(row, 0).toString();
+            int idArticuloConvertido = Integer.parseInt(idArticulo);
+
+            if (boton.getName().equals("Eliminar")) {
+                try {
+                    if (Utilidades.mensajeConfirmacion("¿Estás seguro de que quieres eliminar el artículo con identificador " + idArticulo + "?", "Confirmación") == 0) {
+                        boolean bandera = this.objServicio.eliminarArticulo(idArticuloConvertido);
+                        if (bandera) {
+                            Utilidades.mensajeExito("El artículo con identificador " + idArticuloConvertido + " fue eliminado exitosamente", "Artículo eliminado");
+                            llenarTabla();
+                        } else {
+                            Utilidades.mensajeAdvertencia("El artículo con identificador " + idArticuloConvertido + " no fue eliminado", "Error al eliminar");
                         }
-                    }catch(Exception ex){
-                        Utilidades.mensajeError("Error al eliminar usuario. Intentelo de nuevo más tarde", "Error");
-                    }  
+                    }
+                } catch (Exception ex) {
+                    Utilidades.mensajeError("Error al eliminar usuario. Intentelo de nuevo más tarde", "Error");
                 }
-                else if(boton.getName().equals("Actualizar")){
-                    VtnActualizarArticulo objVtnActualizarArticulo= 
-                            new VtnActualizarArticulo(objServicio, objServicio2);
-                    objVtnActualizarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                    objVtnActualizarArticulo.cargarDatos(idArticuloConvertido);
-                    objVtnActualizarArticulo.setVisible(true);
-                            
+            } else if (boton.getName().equals("Actualizar")) {
+                VtnActualizarArticulo objVtnActualizarArticulo = new VtnActualizarArticulo(objServicio, objServicio2);
+                objVtnActualizarArticulo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                objVtnActualizarArticulo.cargarDatos(idArticuloConvertido);
+                objVtnActualizarArticulo.setVisible(true);
+            } else if (boton.getName().equals("PDF")) {
+                // Obtener el artículo correspondiente
+                Articulo articulo = this.objServicio.obtenerArticuloPorId(idArticuloConvertido);
+                
+                if (articulo != null && articulo.getArchivoPdf() != null) {
+                    File pdfFile = articulo.getArchivoPdf();
+                    if (pdfFile.exists()) {
+                        try {
+                            // Abrir el archivo PDF usando la clase Desktop
+                            Desktop desktop = Desktop.getDesktop();
+                            if (desktop.isSupported(Desktop.Action.OPEN)) {
+                                desktop.open(pdfFile);
+                            } else {
+                                Utilidades.mensajeAdvertencia("No se soporta la acción de abrir archivos en este sistema.", "Acción no soportada");
+                            }
+                        } catch (IOException e) {
+                            Utilidades.mensajeError("Error al intentar abrir el archivo PDF.", "Error");
+                            e.printStackTrace();
+                        }
+                    } else {
+                        Utilidades.mensajeAdvertencia("El archivo PDF no existe.", "Archivo no encontrado");
+                    }
+                } else {
+                    Utilidades.mensajeAdvertencia("No se encontró el archivo PDF asociado al artículo.", "Archivo no encontrado");
                 }
             }
         }
+    }
         
         
     }//GEN-LAST:event_jTableListarArticulosMouseClicked

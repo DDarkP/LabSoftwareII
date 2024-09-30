@@ -50,7 +50,10 @@ public class ServicioAlmacenamientoArticulos extends Subject{
         return this.referenciaRepositorioArticulo.almacenarArticulo(objArticulo);
     }
 
-
+public Articulo obtenerArticuloPorId(int idArticulo) {
+    return referenciaRepositorioArticulo.consultarArticulo(idArticulo);
+}
+    
       
     public List<Articulo> listarArticulos()
     {
