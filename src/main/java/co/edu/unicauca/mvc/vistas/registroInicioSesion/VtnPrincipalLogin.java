@@ -86,7 +86,7 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabelIniciarSesion.setFont(new java.awt.Font("Roboto Condensed Light", 0, 24)); // NOI18N
-        jLabelIniciarSesion.setForeground(new java.awt.Color(255, 0, 102));
+        jLabelIniciarSesion.setForeground(new java.awt.Color(0, 102, 153));
         jLabelIniciarSesion.setText("Iniciar Sesion");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -114,7 +114,7 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
         jLabelNoCuenta.setText("¿No tienes una cuenta?");
 
         jButtonRegistrar.setFont(new java.awt.Font("Roboto Thin", 0, 14)); // NOI18N
-        jButtonRegistrar.setForeground(new java.awt.Color(255, 0, 102));
+        jButtonRegistrar.setForeground(new java.awt.Color(0, 102, 153));
         jButtonRegistrar.setText("Registrate");
         jButtonRegistrar.setBorder(null);
         jButtonRegistrar.setBorderPainted(false);
@@ -154,7 +154,7 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
-        jPanel3.setBackground(new java.awt.Color(255, 0, 102));
+        jPanel3.setBackground(new java.awt.Color(0, 102, 153));
 
         jLabelUsuario.setFont(new java.awt.Font("Roboto Condensed Light", 0, 15)); // NOI18N
         jLabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,9 +164,9 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPassword.setText("Contraseña");
 
-        jTextFieldUsuario.setBackground(new java.awt.Color(255, 0, 102));
+        jTextFieldUsuario.setBackground(new java.awt.Color(0, 102, 153));
         jTextFieldUsuario.setFont(new java.awt.Font("Roboto Condensed Light", 2, 15)); // NOI18N
-        jTextFieldUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldUsuario.setForeground(new java.awt.Color(0, 102, 153));
         jTextFieldUsuario.setBorder(null);
         jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,9 +187,9 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
             }
         });
 
-        jPasswordFieldContrasena.setBackground(new java.awt.Color(255, 0, 102));
+        jPasswordFieldContrasena.setBackground(new java.awt.Color(0, 102, 153));
         jPasswordFieldContrasena.setFont(new java.awt.Font("Roboto Condensed Light", 2, 15)); // NOI18N
-        jPasswordFieldContrasena.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordFieldContrasena.setForeground(new java.awt.Color(0, 102, 153));
         jPasswordFieldContrasena.setBorder(null);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -270,13 +270,11 @@ public class VtnPrincipalLogin extends javax.swing.JFrame {
                     objVtnPrincipalOrganizador.setVisible(true);
                     break;
                 case "Autor":
-                    System.out.println("Acceso a la revisión de artículos.");
                     VtnPrincipalAutor objVtnPrincipalAutor = new VtnPrincipalAutor();
                     objVtnPrincipalAutor.asociarServiciosAlmacenamiento(objServAlmacConferencias, objServAlmacUsuarios, objServAlmacArticulos);
                     objVtnPrincipalAutor.setVisible(true);
                     break;
                 case "Revisor":
-                    System.out.println("Acceso a la creación y edición de artículos.");
                     VtnPrincipalRevisor objVtnPrincipalRevisor = new VtnPrincipalRevisor();
                     objVtnPrincipalRevisor.asociarServiciosAlmacenamiento(objServAlmacConferencias, objServAlmacUsuarios, objServAlmacArticulos);
                     objVtnPrincipalRevisor.setVisible(true);

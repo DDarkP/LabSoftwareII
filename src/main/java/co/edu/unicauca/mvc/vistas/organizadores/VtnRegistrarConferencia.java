@@ -99,6 +99,8 @@ public class VtnRegistrarConferencia extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldNombre.setText("Conferencia 1");
+
         jTextFieldFechaInicio.setText("25/09/2024");
 
         jTextFieldFechaFin.setText("24/11/2024");

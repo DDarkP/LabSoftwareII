@@ -70,9 +70,9 @@ public final class VtnPrincipalAutor extends javax.swing.JFrame {
 
         jLabelImagenOrganizacion.setText("jLabel1");
 
-        jPanelMenu.setBackground(new java.awt.Color(255, 0, 102));
+        jPanelMenu.setBackground(new java.awt.Color(0, 102, 153));
 
-        jButtonGestionarConferencias.setBackground(new java.awt.Color(255, 0, 102));
+        jButtonGestionarConferencias.setBackground(new java.awt.Color(0, 102, 153));
         jButtonGestionarConferencias.setForeground(new java.awt.Color(255, 255, 255));
         jButtonGestionarConferencias.setText("Gestionar Articulos");
         jButtonGestionarConferencias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));

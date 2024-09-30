@@ -71,9 +71,10 @@ public class VtnPrincipalSignUp extends javax.swing.JFrame {
 
         jLabelImagenOrganizacion.setText("jLabel1");
 
+        jLabelRegistro.setBackground(new java.awt.Color(0, 102, 153));
         jLabelRegistro.setFont(new java.awt.Font("Roboto Condensed Light", 1, 24)); // NOI18N
-        jLabelRegistro.setForeground(new java.awt.Color(255, 0, 102));
-        jLabelRegistro.setText("Registrarse");
+        jLabelRegistro.setForeground(new java.awt.Color(0, 102, 153));
+        jLabelRegistro.setText("REGISTRARSE");
 
         javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
         jPanelSuperior.setLayout(jPanelSuperiorLayout);
@@ -82,21 +83,20 @@ public class VtnPrincipalSignUp extends javax.swing.JFrame {
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabelImagenOrganizacion)
-                .addGap(103, 103, 103)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
+                .addContainerGap(194, Short.MAX_VALUE)
                 .addComponent(jLabelRegistro)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addGap(183, 183, 183))
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelImagenOrganizacion))
-                    .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabelRegistro)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabelImagenOrganizacion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelRegistro)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
@@ -116,14 +116,15 @@ public class VtnPrincipalSignUp extends javax.swing.JFrame {
 
         getContentPane().add(jPanelInferior, java.awt.BorderLayout.PAGE_END);
 
-        jPanelCentral.setBackground(new java.awt.Color(255, 0, 102));
+        jPanelCentral.setBackground(new java.awt.Color(0, 102, 153));
+        jPanelCentral.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTextFieldEmail.setBackground(new java.awt.Color(255, 0, 102));
+        jTextFieldEmail.setBackground(new java.awt.Color(0, 102, 153));
         jTextFieldEmail.setFont(new java.awt.Font("Roboto Condensed Light", 2, 14)); // NOI18N
         jTextFieldEmail.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldEmail.setBorder(null);
 
-        jButtonRegistrar.setBackground(new java.awt.Color(255, 0, 102));
+        jButtonRegistrar.setBackground(new java.awt.Color(0, 102, 153));
         jButtonRegistrar.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
         jButtonRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRegistrar.setText("Registrarse");
@@ -134,20 +135,22 @@ public class VtnPrincipalSignUp extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldPassword.setBackground(new java.awt.Color(255, 0, 102));
+        jTextFieldPassword.setBackground(new java.awt.Color(0, 102, 153));
         jTextFieldPassword.setFont(new java.awt.Font("Roboto Condensed Light", 2, 14)); // NOI18N
         jTextFieldPassword.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldPassword.setBorder(null);
 
+        jLabelEmail.setBackground(new java.awt.Color(0, 102, 153));
         jLabelEmail.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
         jLabelEmail.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEmail.setText("Email");
 
+        jLabelNombreCompleto.setBackground(new java.awt.Color(0, 102, 153));
         jLabelNombreCompleto.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
         jLabelNombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombreCompleto.setText("Nombre completo");
 
-        jComboBoxRol.setBackground(new java.awt.Color(255, 0, 102));
+        jComboBoxRol.setBackground(new java.awt.Color(0, 102, 153));
         jComboBoxRol.setFont(new java.awt.Font("Roboto Condensed Light", 2, 14)); // NOI18N
         jComboBoxRol.setForeground(new java.awt.Color(255, 255, 255));
         jComboBoxRol.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -157,24 +160,27 @@ public class VtnPrincipalSignUp extends javax.swing.JFrame {
             }
         });
 
+        jLabelPassword.setBackground(new java.awt.Color(0, 102, 153));
         jLabelPassword.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPassword.setText("Contraseña");
 
+        jLabelUsuario.setBackground(new java.awt.Color(0, 102, 153));
         jLabelUsuario.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
         jLabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsuario.setText("Usuario");
 
-        jTextFieldNombreCompleto.setBackground(new java.awt.Color(255, 0, 102));
+        jTextFieldNombreCompleto.setBackground(new java.awt.Color(0, 102, 153));
         jTextFieldNombreCompleto.setFont(new java.awt.Font("Roboto Condensed Light", 2, 14)); // NOI18N
         jTextFieldNombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldNombreCompleto.setBorder(null);
 
+        jLabelPassword1.setBackground(new java.awt.Color(0, 102, 153));
         jLabelPassword1.setFont(new java.awt.Font("Roboto Condensed Light", 1, 14)); // NOI18N
         jLabelPassword1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPassword1.setText("Selecciona tu rol");
 
-        jTextFieldUsuario.setBackground(new java.awt.Color(255, 0, 102));
+        jTextFieldUsuario.setBackground(new java.awt.Color(0, 102, 153));
         jTextFieldUsuario.setFont(new java.awt.Font("Roboto Condensed Light", 2, 14)); // NOI18N
         jTextFieldUsuario.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldUsuario.setBorder(null);
@@ -191,29 +197,24 @@ public class VtnPrincipalSignUp extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
+                        .addComponent(jLabelEmail)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanelCentralLayout.createSequentialGroup()
-                        .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                            .addComponent(jLabelUsuario, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNombreCompleto, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldNombreCompleto, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(104, 104, 104))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanelCentralLayout.createSequentialGroup()
-                            .addComponent(jLabelEmail)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCentralLayout.createSequentialGroup()
-                            .addComponent(jLabelPassword)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(jPanelCentralLayout.createSequentialGroup()
-                            .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextFieldPassword)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCentralLayout.createSequentialGroup()
-                                    .addComponent(jLabelPassword1)
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(jComboBoxRol, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(104, 104, 104)))))
+                        .addComponent(jLabelPassword)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelCentralLayout.createSequentialGroup()
+                        .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                                .addComponent(jLabelUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelNombreCompleto, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldNombreCompleto, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jTextFieldPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelPassword1)
+                            .addComponent(jComboBoxRol, 0, 310, Short.MAX_VALUE))
+                        .addGap(104, 104, 104))))
             .addGroup(jPanelCentralLayout.createSequentialGroup()
                 .addGap(204, 204, 204)
                 .addComponent(jButtonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,7 +223,7 @@ public class VtnPrincipalSignUp extends javax.swing.JFrame {
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addComponent(jLabelUsuario)
                 .addGap(2, 2, 2)
                 .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
