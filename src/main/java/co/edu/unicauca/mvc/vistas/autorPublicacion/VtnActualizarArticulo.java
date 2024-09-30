@@ -9,8 +9,11 @@ import co.edu.unicauca.mvc.controladores.ServicioAlmacenamientoConferencias;
 import co.edu.unicauca.mvc.modelos.Articulo;
 import co.edu.unicauca.mvc.modelos.Conferencia;
 import co.edu.unicauca.mvc.utilidades.Utilidades;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,6 +39,7 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
         this.jTextFieldId.setText(objArticulo.getIdArticulo()+"");
         this.jTextFieldTitulo.setText(objArticulo.getTitulo());
         this.jTextAreaAutores.setText(objArticulo.getAutores());
+        this.txtpdf.setText(objArticulo.getArchivoPdf().getName());
         this.jComboBoxConferencia.setSelectedItem(objArticulo.getObjConferencia());
     }
     
@@ -71,6 +75,9 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
         jComboBoxConferencia = new javax.swing.JComboBox<>();
         jTextFieldId = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        btnSeleccionarPdf = new javax.swing.JButton();
+        txtpdf = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,13 +143,22 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
 
         jLabel5.setText("Id:");
 
+        btnSeleccionarPdf.setText("Seleccionar PDF:");
+        btnSeleccionarPdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarPdfActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(102, 102, 102)
+                .addGap(62, 62, 62)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSeleccionarPdf)
+                    .addComponent(jLabel6)
                     .addComponent(jLabel4)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel1)
@@ -151,16 +167,18 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBoxConferencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1)
                             .addComponent(jTextFieldTitulo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                         .addComponent(jButtonActualizar)
-                        .addGap(32, 32, 32))))
+                        .addGap(32, 32, 32))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtpdf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,14 +193,21 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(4, 4, 4)
-                        .addComponent(jButtonActualizar))
-                    .addComponent(jComboBoxConferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnSeleccionarPdf)
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(4, 4, 4)
+                                .addComponent(jButtonActualizar))
+                            .addComponent(jComboBoxConferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtpdf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -192,35 +217,65 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
-        String titulo, autores, id;
-        Conferencia objConferencia;
-        boolean bandera;
-        int idArticulo;
-        id=this.jTextFieldId.getText();  
-        
-        idArticulo=Integer.parseInt(id);
-        titulo=this.jTextFieldTitulo.getText();
-        autores=this.jTextAreaAutores.getText();
-        objConferencia=(Conferencia) this.jComboBoxConferencia.getSelectedItem();
-        
-        
-        Articulo objArticulo= new Articulo();
-        objArticulo.setIdArticulo(idArticulo);
+    String titulo, autores, id;
+    Conferencia objConferencia;
+    boolean bandera;
+    int idArticulo;
+    id = this.jTextFieldId.getText();  
+
+    // Convertir el ID a un entero
+    idArticulo = Integer.parseInt(id);
+    titulo = this.jTextFieldTitulo.getText();
+    autores = this.jTextAreaAutores.getText();
+    objConferencia = (Conferencia) this.jComboBoxConferencia.getSelectedItem();
+    
+    // Obtener el artículo existente para actualizar
+    Articulo objArticulo = this.objServicio1.obtenerArticuloPorId(idArticulo);
+    if (objArticulo != null) {
+        // Actualizar los atributos del artículo
         objArticulo.setTitulo(titulo);
         objArticulo.setAutores(autores);
         objArticulo.setObjConferencia(objConferencia);
-
+        
+        // Proceder a actualizar el artículo
         bandera = this.objServicio1.actualizarArticulo(objArticulo);
-        if (bandera == true) {
+        if (bandera) {
             Utilidades.mensajeExito("Artículo actualizado exitosamente", "Artículo actualizado");
         } else {
             Utilidades.mensajeError("Error al actualizar el artículo", "Error al actualizar");
         }
+    } else {
+        Utilidades.mensajeError("No se encontró el artículo con ID: " + idArticulo, "Error");
+    }
+
     }//GEN-LAST:event_jButtonActualizarActionPerformed
+
+    private void seleccionarPdf() {
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("PDF Files", "pdf")); // Filtro para solo mostrar PDFs
+    int resultado = fileChooser.showOpenDialog(this); // 'this' se refiere a la ventana actual
+
+    if (resultado == JFileChooser.APPROVE_OPTION) {
+        File archivoSeleccionado = fileChooser.getSelectedFile();
+        // Asegúrate de que tienes el objeto Articulo inicializado
+        Articulo objArticulo = this.objServicio1.obtenerArticuloPorId(Integer.parseInt(this.jTextFieldId.getText()));
+        
+        if (objArticulo != null) {
+            objArticulo.setArchivoPdf(archivoSeleccionado); // Actualiza el artículo con el nuevo PDF
+            Utilidades.mensajeExito("Archivo PDF seleccionado: " + archivoSeleccionado.getName(), "PDF seleccionado");
+            txtpdf.setText(archivoSeleccionado.getName());
+        }
+    }
+}
+    private void btnSeleccionarPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarPdfActionPerformed
+        // TODO add your handling code here:
+        seleccionarPdf();
+    }//GEN-LAST:event_btnSeleccionarPdfActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSeleccionarPdf;
     private javax.swing.JButton jButtonActualizar;
     private javax.swing.JComboBox<Conferencia> jComboBoxConferencia;
     private javax.swing.JLabel jLabel1;
@@ -228,6 +283,7 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -235,5 +291,6 @@ public class VtnActualizarArticulo extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaAutores;
     private javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldTitulo;
+    private javax.swing.JTextField txtpdf;
     // End of variables declaration//GEN-END:variables
 }

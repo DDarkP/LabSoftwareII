@@ -220,14 +220,13 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
 
     private void jTableListarArticulosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableListarArticulosMouseClicked
         
-      int column = this.jTableListarArticulos.getColumnModel().getColumnIndexAtX(evt.getX());
+       int column = this.jTableListarArticulos.getColumnModel().getColumnIndexAtX(evt.getX());
     int row = evt.getY() / jTableListarArticulos.getRowHeight();
 
     if (row < jTableListarArticulos.getRowCount() && row >= 0 && column < jTableListarArticulos.getColumnCount() && column >= 0) {
         Object value = jTableListarArticulos.getValueAt(row, column);
 
         if (value instanceof JButton) {
-
             ((JButton) value).doClick();
             JButton boton = (JButton) value;
 
@@ -246,7 +245,7 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                         }
                     }
                 } catch (Exception ex) {
-                    Utilidades.mensajeError("Error al eliminar usuario. Intentelo de nuevo más tarde", "Error");
+                    Utilidades.mensajeError("Error al eliminar artículo. Inténtelo de nuevo más tarde", "Error");
                 }
             } else if (boton.getName().equals("Actualizar")) {
                 VtnActualizarArticulo objVtnActualizarArticulo = new VtnActualizarArticulo(objServicio, objServicio2);
@@ -256,32 +255,38 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
             } else if (boton.getName().equals("PDF")) {
                 // Obtener el artículo correspondiente
                 Articulo articulo = this.objServicio.obtenerArticuloPorId(idArticuloConvertido);
-                
-                if (articulo != null && articulo.getArchivoPdf() != null) {
+
+                // Verifica que el artículo no sea nulo
+                if (articulo != null) {
                     File pdfFile = articulo.getArchivoPdf();
-                    if (pdfFile.exists()) {
-                        try {
-                            // Abrir el archivo PDF usando la clase Desktop
-                            Desktop desktop = Desktop.getDesktop();
-                            if (desktop.isSupported(Desktop.Action.OPEN)) {
-                                desktop.open(pdfFile);
-                            } else {
-                                Utilidades.mensajeAdvertencia("No se soporta la acción de abrir archivos en este sistema.", "Acción no soportada");
+
+                    // Verifica que el archivo PDF no sea nulo
+                    if (pdfFile != null) {
+                        if (pdfFile.exists()) {
+                            try {
+                                // Abrir el archivo PDF usando la clase Desktop
+                                Desktop desktop = Desktop.getDesktop();
+                                if (desktop.isSupported(Desktop.Action.OPEN)) {
+                                    desktop.open(pdfFile);
+                                } else {
+                                    Utilidades.mensajeAdvertencia("No se soporta la acción de abrir archivos en este sistema.", "Acción no soportada");
+                                }
+                            } catch (IOException e) {
+                                Utilidades.mensajeError("Error al intentar abrir el archivo PDF.", "Error");
+                                e.printStackTrace();
                             }
-                        } catch (IOException e) {
-                            Utilidades.mensajeError("Error al intentar abrir el archivo PDF.", "Error");
-                            e.printStackTrace();
+                        } else {
+                            Utilidades.mensajeAdvertencia("El archivo PDF no existe.", "Archivo no encontrado");
                         }
                     } else {
-                        Utilidades.mensajeAdvertencia("El archivo PDF no existe.", "Archivo no encontrado");
+                        Utilidades.mensajeAdvertencia("No se encontró el archivo PDF asociado al artículo.", "Archivo no encontrado");
                     }
                 } else {
-                    Utilidades.mensajeAdvertencia("No se encontró el archivo PDF asociado al artículo.", "Archivo no encontrado");
+                    Utilidades.mensajeAdvertencia("No se encontró el artículo con el ID especificado.", "Artículo no encontrado");
                 }
             }
         }
     }
-        
         
     }//GEN-LAST:event_jTableListarArticulosMouseClicked
 
