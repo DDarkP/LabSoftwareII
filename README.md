@@ -21,7 +21,7 @@ El equipo de desarrollo:
 + Para Rol Organizador:
   * Registro de conferencias.
 ## Documentacion
-En el siguiente enlace: https://drive.google.com/drive/folders/1Bn87LzVnIOWb2BSwMoX1iFQTWFp7D65n?usp=drive_link
+En el siguiente enlace: https://drive.google.com/drive/folders/1dsnzNlLa4DjvJbxDm6QkPMmNoDHpbjcF?usp=sharing
 encontraras:
 + Modelo C4.
 + Historias Epicas.
