@@ -127,13 +127,14 @@ public class VtnRegistrarArticulo extends javax.swing.JFrame {
 
         jLabel4.setText("Conferencia:");
 
-        btnSeleccionarPdf.setText("Seleccionar PDF");
+        btnSeleccionarPdf.setText("Seleccionar PDF:");
         btnSeleccionarPdf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeleccionarPdfActionPerformed(evt);
             }
         });
 
+        txtPdf.setEnabled(false);
         txtPdf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPdfActionPerformed(evt);
