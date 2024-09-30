@@ -61,9 +61,9 @@ public final class VtnPrincipalRevisor extends javax.swing.JFrame {
         jPanelMenu = new javax.swing.JPanel();
         jButtonGestionarConferencias = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jDesktopPanelPrincipal = new javax.swing.JDesktopPane();
         jPanelInferior = new javax.swing.JPanel();
         jPanelCentral = new javax.swing.JPanel();
-        jDesktopPanelPrincipal = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,6 +108,17 @@ public final class VtnPrincipalRevisor extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
+        javax.swing.GroupLayout jDesktopPanelPrincipalLayout = new javax.swing.GroupLayout(jDesktopPanelPrincipal);
+        jDesktopPanelPrincipal.setLayout(jDesktopPanelPrincipalLayout);
+        jDesktopPanelPrincipalLayout.setHorizontalGroup(
+            jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 863, Short.MAX_VALUE)
+        );
+        jDesktopPanelPrincipalLayout.setVerticalGroup(
+            jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 236, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
         jPanelSuperior.setLayout(jPanelSuperiorLayout);
         jPanelSuperiorLayout.setHorizontalGroup(
@@ -120,6 +131,10 @@ public final class VtnPrincipalRevisor extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelSuperiorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDesktopPanelPrincipal)
+                .addContainerGap())
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,7 +143,9 @@ public final class VtnPrincipalRevisor extends javax.swing.JFrame {
                 .addComponent(jLabelImagenOrganizacion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jDesktopPanelPrincipal)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
@@ -150,29 +167,15 @@ public final class VtnPrincipalRevisor extends javax.swing.JFrame {
 
         jPanelCentral.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jDesktopPanelPrincipalLayout = new javax.swing.GroupLayout(jDesktopPanelPrincipal);
-        jDesktopPanelPrincipal.setLayout(jDesktopPanelPrincipalLayout);
-        jDesktopPanelPrincipalLayout.setHorizontalGroup(
-            jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 863, Short.MAX_VALUE)
-        );
-        jDesktopPanelPrincipalLayout.setVerticalGroup(
-            jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 236, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout jPanelCentralLayout = new javax.swing.GroupLayout(jPanelCentral);
         jPanelCentral.setLayout(jPanelCentralLayout);
         jPanelCentralLayout.setHorizontalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelCentralLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPanelPrincipal)
-                .addContainerGap())
+            .addGap(0, 875, Short.MAX_VALUE)
         );
         jPanelCentralLayout.setVerticalGroup(
             jPanelCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPanelPrincipal)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelCentral, java.awt.BorderLayout.CENTER);
