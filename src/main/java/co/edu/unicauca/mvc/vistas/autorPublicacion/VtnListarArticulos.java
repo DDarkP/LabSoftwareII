@@ -33,8 +33,10 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
        model.addColumn("Titulo");
        model.addColumn("Autores");
        model.addColumn("Conferencia");
+       model.addColumn("Nombre PDF");
        model.addColumn("Eliminar");
-       model.addColumn("Actualizar");       
+       model.addColumn("Actualizar");     
+       model.addColumn("PDF");
        this.jTableListarArticulos.setModel(model);
     }
      
@@ -61,6 +63,9 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
         JButton JButtonActualizarArticulo = new JButton();
         JButtonActualizarArticulo.setName("Actualizar");
         JButtonActualizarArticulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/aplicar.png")));
+        JButton JButtonPdf = new JButton();
+        JButtonPdf.setName("PDF");
+        JButtonPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/pdf.png")));
 
             
         for (int i = 0; i < listaArticulos.size(); i++) {
@@ -69,8 +74,11 @@ public class VtnListarArticulos extends javax.swing.JInternalFrame {
                 listaArticulos.get(i).getTitulo(),
                 listaArticulos.get(i).getAutores(),
                 listaArticulos.get(i).getObjConferencia().getNombre(),
+                listaArticulos.get(i).getArchivoPdf().getName(),
                 JButtonEliminarArticulo,
-                JButtonActualizarArticulo};
+                JButtonActualizarArticulo,
+                JButtonPdf};
+            
             model.addRow(fila);
         }
         
